@@ -1,0 +1,172 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer components {
+
+    /* ---------------- Text Inputs ---------------- */
+    .text-input {
+        @apply w-full border rounded-md px-4 py-2 mt-1
+        focus:outline-none focus:ring-2 focus:ring-blue-400
+        text-gray-900 dark:text-gray-200
+        border-gray-300 dark:border-gray-600
+        placeholder-gray-400 dark:placeholder-gray-300;
+    }
+    .text-input-error { 
+        @apply text-red-500 dark:text-red-400 text-sm mt-1;
+    }
+
+    /* ---------------- Textarea ---------------- */
+    .textarea-input {
+        @apply w-full border rounded-md px-4 py-3 mt-1
+        focus:outline-none focus:ring-2 focus:ring-blue-400
+        resize-none bg-white dark:bg-gray-700
+        text-gray-900 dark:text-gray-200
+        border-gray-300 dark:border-gray-600
+        placeholder-gray-400 dark:placeholder-gray-300;
+    }
+    .textarea-error {
+        @apply text-red-500 dark:text-red-400 text-sm mt-1;
+    }
+
+    /* ---------------- File Upload ---------------- */
+    .file-upload-input {
+        @apply w-full border border-solid rounded-md p-2 text-gray-900 dark:text-gray-100
+        hover:border-blue-400 cursor-pointer bg-white dark:bg-gray-800
+        border-gray-300 dark:border-gray-600;
+    }
+    .file-upload-error {
+        @apply text-red-500 dark:text-red-400 text-sm mt-1;
+    }
+
+    /* ---------------- DatePicker ---------------- */
+    .datepicker-input-base {
+        @apply w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100;
+    }
+    .datepicker-calendar {
+        @apply bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-md shadow-lg;
+    }
+    .datepicker-input-error {
+        @apply border-red-500 dark:border-red-400 text-sm mt-1;
+    }
+
+    /* ---------------- DropDown ---------------- */
+    .dropdown-base {
+        @apply w-full border rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600 appearance-none;
+    }
+    .dropdown-base::-ms-expand {
+        @apply appearance-none;
+    }
+    .dropdown-error {
+        @apply border-red-500 dark:border-red-400 text-sm mt-1
+    }
+
+    /* ---------------- MultiChoice ---------------- */
+    .multi-choice-container {
+        @apply flex flex-wrap gap-4;
+    }
+    .multi-choice-label {
+        @apply flex items-center space-x-2 cursor-pointer text-base font-medium;
+    }
+    .multi-choice-checkbox-color {
+        @apply text-blue-500 h-5 w-5 dark:text-blue-400;
+    }
+    .multi-choice-text {
+        @apply text-gray-900 dark:text-gray-200;
+    }
+    .multi-choice-error {
+        @apply text-red-500 dark:text-red-400 text-sm mt-1;
+    }
+
+    /* ---------------- RadioGroup ---------------- */
+    .radio-group-container {
+        @apply flex gap-6;
+    }
+    .radio-group-label {
+        @apply flex items-center space-x-3 cursor-pointer text-base font-medium;
+    }
+    .radio-group-input-color {
+        @apply text-blue-500 h-6 w-6 dark:text-blue-400;
+    }
+    .radio-group-text {
+        @apply text-gray-900 dark:text-gray-200;
+    }
+    .radio-group-error {
+        @apply text-red-500 dark:text-red-400 text-base mt-2;
+    }
+
+    /* ---------------- Step Navigator ---------------- */
+    .step-navigator {
+        @apply flex justify-between mt-6;
+    }
+    .step-btn-back {
+        @apply px-6 py-2 rounded-lg font-medium transition;
+    }
+    .step-btn-back-disabled {
+        @apply bg-gray-200 dark:bg-gray-600 text-gray-400 dark:text-gray-400 cursor-not-allowed;
+    }
+    .step-btn-back-active {
+        @apply bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-400 dark:hover:bg-gray-600;
+    }
+    .step-btn-next {
+        @apply px-6 py-2 rounded-lg font-medium text-white transition;
+    }
+    .step-btn-next-blue {
+        @apply bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700;
+    }
+    .step-btn-next-green {
+        @apply bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700;
+    }
+
+    /* ---------------- Theme Toggle ---------------- */
+    .theme-toggle-btn {
+        @apply relative w-16 h-8 flex items-center rounded-full bg-gray-300 dark:bg-gray-600 transition;
+    }
+    .theme-toggle-circle {
+        @apply absolute left-1 top-1 w-6 h-6 flex items-center justify-center rounded-full bg-white dark:bg-gray-800 transform transition-transform;
+    }
+    .theme-toggle-wrapper {
+        @apply absolute top-4 right-4;
+    }
+
+    /* ---------------- MultiStepForm ---------------- */
+    .multi-step-form-wrapper {
+        @apply min-w-full min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center p-4;
+    }
+    .multi-step-form-card {
+        @apply relative w-[90vw] sm:w-[80vw] md:w-[60vw] lg:w-[45vw] xl:w-[35vw] h-[70vh] bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 flex flex-col overflow-auto;
+    }
+    .stepper-circle-active {
+        @apply bg-blue-500 border-blue-500 text-white font-semibold;
+    }
+    .stepper-circle-inactive {
+        @apply border-gray-300 dark:border-gray-600 text-gray-400 dark:text-gray-500;
+    }
+    .stepper-line {
+        @apply flex-1 h-1 bg-gray-300 dark:bg-gray-600 mx-2 rounded-full;
+    }
+    .form-field-wrapper {
+        @apply flex-1 flex flex-col justify-center;
+    }
+    .form-field-label {
+        @apply font-medium text-gray-700 dark:text-gray-200 mb-1;
+    }
+    .form-field-error {
+        @apply text-red-500 text-sm mt-1;
+    }
+    .submission-card {
+        @apply bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-10 text-center max-w-md w-full;
+    }
+    .submission-icon {
+        @apply mx-auto mb-4 w-16 h-16 text-green-500;
+    }
+    .submission-heading {
+        @apply text-2xl font-semibold mb-2 text-gray-800 dark:text-gray-100;
+    }
+    .submission-text {
+        @apply text-gray-600 dark:text-gray-400 mb-6;
+    }
+    .submission-btn {
+        @apply px-6 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 text-white font-medium transition;
+    }
+
+}
